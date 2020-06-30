@@ -1,2 +1,2 @@
 # geolayers
-Geographic Vector and Raster Layers
+Georeferencing Vector and Raster Layers
