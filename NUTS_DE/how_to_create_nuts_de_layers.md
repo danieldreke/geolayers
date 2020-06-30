@@ -1,0 +1,27 @@
+### How to Create NUTS_DE Layers
+
+- Download [`ref-nuts-2016-01m.shp.zip`](https://ec.europa.eu/eurostat/cache/GISCO/distribution/v2/nuts/download/ref-nuts-2016-01m.shp.zip) (~100MB)
+  - Description: NUTS 2016 1:1 million SHP
+  - Source: [ec.europa.eu ~ NUTS Eurostat](https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts)
+- Unzip `ref-nuts-2016-01m.shp.zip`
+- Open `NUTS_RG_01M_2016_3035.shp`
+- Create Layer `NUTS_DE_All_3035`
+  - Select by Expression `CNTR_CODE = 'DE'`
+  - Toolbox `Fix geometries`
+    - Check `Selected features only`
+  - Rename result layer to `NUTS_DE_3035`
+  - Remove `NUTS_RG_01M_2016_3035.shp`
+  - Export > `Save Features As`
+    - Format `GeoPackage`
+    - File name `NUTS_DE_All_3035`
+    - Deselect fields `FID` 
+- Create Layer `NUTS0_DE_Border_3035`
+  - Select by Expression `LEVL_CODE = 0`
+  - Export > `Save Selected Features As`
+    - Format `GeoPackage`
+    - File name `NUTS_DE_Border_3035`
+    - Uncheck fields `LEVL_CODE`, `CNTR_CODE` and `FID`
+- Create Layer `NUTS_DE_States_3035`
+  - Select by Expression `LEVL_CODE = 1`
+- Create Layer `NUTS_DE_Districts_3035`
+  - Select by Expression `LEVL_CODE = 3`

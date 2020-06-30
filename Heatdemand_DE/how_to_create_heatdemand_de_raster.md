@@ -1,0 +1,24 @@
+### How to Create Heatdemand_DE Raster
+
+- Download [heat_tot_curr_density.tif](https://gitlab.com/hotmaps/heat/heat_tot_curr_density/-/raw/master/data/heat_tot_curr_density.tif) (~ 132 MB)
+  - Source: [gitlab.com ~ Hotmaps Heat Density Map 2015](https://gitlab.com/hotmaps/heat/heat_tot_curr_density/-/tree/master/)
+- Open `heat_tot_curr_density.tif`
+- Create raster `Heatdemand_DE`
+    - Open [NUTS_DE_Border.gpkg](data/NUTS_DE/NUTS_DE_Border.gpkg)
+    - Clip raster `heat_tot_curr_density` by Extent `NUTS_DE_Border`
+      - Toolbox `Clip raster by Extent`
+      - Clipping extent `NUTS_DE_Border`
+      - No Data `0`
+      - Rename result layer to `Heatdemand_DE_extent`
+      - Remove layer `heat_tot_curr_density`
+    - Clip raster `Heatdemand_DE_extent` by `NUTS_DE_Border`
+      - Toolbox `Clip Raster by Mask Layer`
+      - No Data `0`
+      - Uncheck `Match extent`
+      - Rename result layer to `Heatdemand_DE`
+      - Remove layer `Heatdemand_DE_extent`
+    - Save as `Heatdemand_DE.tif`
+      - Export `Save Raster Layer as...`
+      - File name `Heatdemand_DE.tif`
+      - Profile `High compression`
+      - No Data `0`
