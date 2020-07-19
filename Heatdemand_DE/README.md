@@ -4,7 +4,7 @@
   - Source: [gitlab.com ~ Hotmaps Heat Density Map 2015](https://gitlab.com/hotmaps/heat/heat_tot_curr_density/-/tree/master/)
 - Open `heat_tot_curr_density.tif`
 - Create raster `Heatdemand_DE`
-    - Open [NUTS_DE_Border.gpkg](https://github.com/danieldreke/geolayers/blob/master/NUTS_DE/NUTS_DE_Border.gpkg)
+    - Open [NUTS_DE_Border.gpkg](https://github.com/danieldreke/geolayers/raw/master/NUTS_DE/NUTS_DE_Border.gpkg)
     - Clip raster `heat_tot_curr_density` by Extent `NUTS_DE_Border`
       - Toolbox `Clip raster by Extent`
       - Clipping extent `NUTS_DE_Border`
