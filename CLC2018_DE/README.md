@@ -3,7 +3,7 @@
 - Download EU Corine Land Cover 2018 Raster 100m GeoTiff (125 MB)
   - Source: [land.copernicus.eu ~ EU CORINE Land Cover CLC 2018](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=download)
 - Open `CORINE_Land_Cover_2018_raster100m/CLC2018_CLC2018_V2018_20.tif`
-- Create CLC2018_DE
+- Create `CLC2018_DE.tif`
     - Open [NUTS_DE_Border.gpkg](data/NUTS_DE/NUTS_DE_Border.gpkg)
     - Clip raster `CLC2018_CLC2018_V2018_20` by Extent `NUTS_DE_Border`
       - Toolbox `Clip raster by Extent`
@@ -22,3 +22,9 @@
       - File name `CLC2018_DE.tif`
       - Profile `High compression`
       - No Data `-32768`
+- Check under `Information`
+  - Unit `meters`
+  - Width `6411`
+  - Height `8673`
+  - Data type `Int16`
+  - Pixel Size `100,-100`
