@@ -1,17 +1,31 @@
 <h1 id="toc">Table of Contents</h1>
 
-- [1. Download Imperviousness Density for Germany](#1-download-imperviousness-density-for-germany)
-- [2. Create 10m Raster for Karlsruhe](#2-create-10m-raster-for-karlsruhe)
-- [3. Create 100m Raster for Karlsruhe](#3-create-100m-raster-for-karlsruhe)
+- [1. Download Imperviousness Density Rasters](#1-download-imperviousness-density-rasters)
+- [2. Create 100m Karlsruhe Raster based on 100m EU Raster](#2-create-100m-karlsruhe-raster-based-on-100m-eu-raster)
+- [3. Create 10m Karlsruhe Raster](#3-create-10m-karlsruhe-raster)
+- [4. Create 100m Karlsruhe Raster based on 10m Karlsruhe Raster](#4-create-100m-karlsruhe-raster-based-on-10m-karlsruhe-raster)
 
-## 1. Download Imperviousness Density for Germany
+## 1. Download Imperviousness Density Rasters
 
 [top](#toc)
 
 - [land.copernicus.eu ~ Imperviousness Density 2018](https://land.copernicus.eu/pan-european/high-resolution-layers/imperviousness/status-maps/imperviousness-density-2018?tab=download)
-  - Download `IMD-2018-010m-Germany`
+  - 100m Raster for EEA39 `IMD-2018-100m-EEA39`
+  - 10m Raster for Germany `IMD-2018-010m-Germany`
 
-## 2. Create 10m Raster for Karlsruhe
+## 2. Create 100m Karlsruhe Raster based on 100m EU Raster
+
+[top](#toc)
+
+- Open raster `IMD_2018_100m_eu_03035_V2_0.tif`
+- Add layer `NUTS_DE_Karlsruhe`
+- Clip raster by Extent `NUTS_DE_Karlsruhe`
+- Clip result raster by Mask `NUTS_DE_Karlsruhe`
+  - Uncheck `Match extent`
+  - Profile `High compression`
+  - Save to `IMD_2018_100m_Karlsruhe_clipped.tif`
+
+## 3. Create 10m Karlsruhe Raster
 
 [top](#toc)
 
@@ -30,16 +44,14 @@
   - Profile `High compression`
   - No data `240`
 
-## 3. Create 100m Raster for Karlsruhe
+## 4. Create 100m Karlsruhe Raster based on 10m Karlsruhe Raster
 
 [top](#toc)
 
 - Create 100m Grid
-  - Option 1: Vectorize/Polygonize `cellids.tif`
-    - Feature Count `32617`
-  - Option 2: Toolbox `Create grid`
+  - Toolbox `Create grid`
     - Type `Rectangle`
-    - Extent `Heatdemand_DE_Karlsruhe`
+    - Extent `NUTS_DE_Karlsruhe`
     - Spacing `100 meters`
 - Calculate `mean` for grid cells
   - Toolbox `Zonal statistics`
